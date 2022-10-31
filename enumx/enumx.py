@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Copyright (c) 2017 Zichoole Inc.
+# Copyright (c) 2022 Anebit Inc.
 # All rights reserved.
 #
-# "Enums" version 1.0
+# "Enumx" version 1.0
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -16,7 +16,7 @@
 # copyright notice, this list of conditions and the following disclaimer
 # in the documentation and/or other materials provided with the
 # distribution.
-#    * Neither the name of Zichoole Inc. nor the names of its
+#    * Neither the name of Anebit Inc. nor the names of its
 # contributors may be used to endorse or promote products derived from
 # this software without specific prior written permission.
 #
@@ -33,22 +33,22 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # ---
-# Author: Zichoole
-# E-mail: zichoole@gmail.com
-# Date  : 2017-10-15 12:20:00
+# Author: Richard
+# E-mail: richard.zen.liew@gmail.com
+# Date  : 2022-10-15 12:20:00
 #
 # ---
 # Description:
-#   Enums.
+#   An extended enum for python.
 #
 # ---
-# TODO(Zichoole):
+# TODO (@Richard):
 #   1. Complete unittests.
 #
 ################################################################################
 
 """Introduction:
-    Enums.
+    An extended enum for python.
 """
 
 __all__ = [
@@ -56,7 +56,6 @@ __all__ = [
     "ExtendedEnum",
     "IntegerEnum",
     "StringEnum",
-    "Switch"
 ]
 
 
@@ -340,10 +339,3 @@ class StringEnum(str, ExtendedEnum):
 
     def __repr__(self):
         return "'{}'".format(str(self.bare()))
-
-################################################################################
-
-@IntegerEnum.unique
-class Switch(IntegerEnum):
-    OFF = 0
-    ON = 1
