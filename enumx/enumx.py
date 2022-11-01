@@ -253,7 +253,7 @@ class ExtendedEnum(Enum, metaclass=ExtendedEnumMeta):
             cls.clone(base_enum)
 
     @classmethod
-    def members(cls, wrap_function=__DEFAULT_VALUE__, excepts=__DEFAULT_VALUE__):
+    def members(cls, wrap_function=__DEFAULT_WRAP__, excepts=__DEFAULT_VALUE__):
         if wrap_function == cls.__DEFAULT_VALUE__:
             wrap_function = cls.__DEFAULT_WRAP__
         if excepts == cls.__DEFAULT_VALUE__:
@@ -270,7 +270,7 @@ class ExtendedEnum(Enum, metaclass=ExtendedEnumMeta):
 
     @classmethod
     def validate(cls, value,
-                 wrap_function=__DEFAULT_VALUE__, excepts=__DEFAULT_VALUE__):
+                 wrap_function=__DEFAULT_WRAP__, excepts=__DEFAULT_VALUE__):
         if wrap_function == cls.__DEFAULT_VALUE__:
             wrap_function = cls.__DEFAULT_WRAP__
         value = cls.shuck(value)
@@ -279,7 +279,7 @@ class ExtendedEnum(Enum, metaclass=ExtendedEnumMeta):
         return value in cls.members(wrap_function, excepts)
 
     @classmethod
-    def compare(cls, member, value, wrap_function=__DEFAULT_VALUE__):
+    def compare(cls, member, value, wrap_function=__DEFAULT_WRAP__):
         if wrap_function == cls.__DEFAULT_VALUE__:
             wrap_function = cls.__DEFAULT_WRAP__
         member, value = cls.shuck(member), cls.shuck(value)
@@ -300,22 +300,22 @@ class ExtendedEnum(Enum, metaclass=ExtendedEnumMeta):
     def bare(self):
         return self.shuck(self)
 
-    def lt(self, value, wrap_function=__DEFAULT_VALUE__):
+    def lt(self, value, wrap_function=__DEFAULT_WRAP__):
         return self.compare(self, value, wrap_function) < 0
 
-    def le(self, value, wrap_function=__DEFAULT_VALUE__):
+    def le(self, value, wrap_function=__DEFAULT_WRAP__):
         return self.compare(self, value, wrap_function) <= 0
 
-    def eq(self, value, wrap_function=__DEFAULT_VALUE__):
+    def eq(self, value, wrap_function=__DEFAULT_WRAP__):
         return self.compare(self, value, wrap_function) == 0
 
-    def ne(self, value, wrap_function=__DEFAULT_VALUE__):
+    def ne(self, value, wrap_function=__DEFAULT_WRAP__):
         return self.compare(self, value, wrap_function) != 0
 
-    def gt(self, value, wrap_function=__DEFAULT_VALUE__):
+    def gt(self, value, wrap_function=__DEFAULT_WRAP__):
         return self.compare(self, value, wrap_function) > 0
 
-    def ge(self, value, wrap_function=__DEFAULT_VALUE__):
+    def ge(self, value, wrap_function=__DEFAULT_WRAP__):
         return self.compare(self, value, wrap_function) >= 0
 
 
